@@ -3,6 +3,8 @@ let inputAge = document.querySelector("#input-age");
 const submitButton = document.querySelector("#submit-button")
 let outputPrice;
 
+let resultP = document.querySelector("#result");
+
 submitButton.addEventListener("click", function(event){
     event.preventDefault()
 
@@ -38,6 +40,6 @@ submitButton.addEventListener("click", function(event){
     } else{ //Determina il prezzo finale senza sconto
         outputPrice = (km * 0.21)
     }
-    console.log(`Il costo del suo biglietto è ${outputPrice.toFixed(2).replace(".",",")} €`);
+    resultP.innerHTML = `Il costo del suo biglietto è ${outputPrice.toFixed(2).replace(".",",")} €`;
     }
 )
