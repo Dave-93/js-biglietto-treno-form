@@ -1,12 +1,27 @@
 let inputKm = document.querySelector("#input-km");
 let inputAge = document.querySelector("#input-age");
-const submitButton = document.querySelector("#submit-button")
+const submitButton = document.querySelector("#submit-button");
 let outputPrice;
 
 let resultP = document.querySelector("#result");
 
 submitButton.addEventListener("click", function(event){
     event.preventDefault()
+
+    //SPINNER BONUS
+    const spinnerBut = submitButton.querySelector("#spinner");
+    const statusBut = submitButton.querySelector(".status");
+
+    submitButton.disabled = true; //Disabilito il pulsante di invio
+    spinnerBut.classList.toggle("d-none"); //Mostro lo spinner
+    statusBut.innerHTML =`Loading`; //Cambio il testo dello stato
+    setTimeout(function(){
+        submitButton.disabled = false;  //Riabilito il pulsante
+        spinnerBut.classList.toggle("d-none");  //Nascondo lo spinner
+        statusBut.innerHTML = `Calcola Prezzo`; //Riporto il testo originale dello stato
+        
+        resultP.innerHTML = ``; //Nascondo il risultato del prezzo
+    }, 4000);
 
     /* 
     //Vedo il contenuto ed il tipo degli input
